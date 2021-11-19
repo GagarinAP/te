@@ -6,20 +6,12 @@ import { api, init as initApiConnectors } from "store/api";
 import { reducers } from "./reducers";
 import sagas from "./sagas";
 
-// ===========================================================================================
-// PERSIST CONFIG SETUP
-// ===========================================================================================
-
 const persistConfig = {
   key: "root",
-  whitelist: ["list"],
+  whitelist: ["auth"],
   timeout: 0,
   storage: AsyncStorage,
 };
-
-// ===========================================================================================
-// MIDDLEWARE SETUP
-// ===========================================================================================
 
 const sagasMiddleware = createSagaMiddleware({ context: { api } });
 
@@ -36,10 +28,6 @@ if (__DEV__) {
   const createDebugger = require("redux-flipper").default;
   middlewares.push(createDebugger());
 }
-
-// ===========================================================================================
-// STORE CREATION
-// ===========================================================================================
 
 export default () => {
   store = createStore(persistedReducer, {}, applyMiddleware(...middlewares));

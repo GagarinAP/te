@@ -1,26 +1,30 @@
 {
-  "name": "timelessReactNativeChallenge",
+  "name": "te",
   "version": "0.0.1",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "apk": "cd android && ./gradlew assembleRelease",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.15.9",
+    "@react-native-community/slider": "^4.1.12",
     "@react-navigation/native": "6.0.6",
     "@react-navigation/native-stack": "6.2.5",
     "@react-navigation/stack": "6.0.11",
     "@shopify/restyle": "1.4.0",
     "axios": "0.24.0",
+    "formik": "^2.2.9",
     "immer": "9.0.6",
     "re-reselect": "4.0.0",
     "react": "17.0.2",
     "react-native": "0.66.1",
-    "react-native-flipper": "0.117.0",
+    "react-native-flipper": "^0.119.0",
     "react-native-gesture-handler": "1.10.3",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "3.9.0",
@@ -29,7 +33,8 @@
     "redux-persist": "6.0.0",
     "redux-saga": "1.1.3",
     "styled-components": "5.3.3",
-    "typesafe-actions": "5.1.0"
+    "typesafe-actions": "5.1.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

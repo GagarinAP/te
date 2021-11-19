@@ -1,2 +1,2 @@
-import { default as Drops } from "./Drops";
-import { default as Detail } from "./Detail";
+import { default as Main } from "./Main";
+import { default as SignIn } from "./SignIn";

@@ -1,6 +1,6 @@
 enum Routes {
-  DROPS = "Drops",
-  DETAIL = "Detail",
+  LOGIN = "Log In",
+  MAIN = "Main",
 }
 
 export default Routes;
