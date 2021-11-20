@@ -4,7 +4,7 @@ import { navigate } from "src/navigation";
 import { ROUTES } from "src/constants";
 import { signInRequest, signInResponse } from "./";
 
-export function* getListSaga({ payload }: { payload: { code: string; password: string } }) {
+export function* getAuthSaga({ payload }: { payload: { code: string; password: string } }) {
   const api: AxiosInstance = yield getContext("api");
   try {
     yield put(signInResponse.request(true));
@@ -18,10 +18,10 @@ export function* getListSaga({ payload }: { payload: { code: string; password: s
   }
 }
 
-function* watchList() {
-  yield takeLeading(signInRequest, getListSaga);
+function* watchAuth() {
+  yield takeLeading(signInRequest, getAuthSaga);
 }
 
 export default function* root() {
-  yield all([fork(watchList)]);
+  yield all([fork(watchAuth)]);
 }
