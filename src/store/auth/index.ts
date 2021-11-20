@@ -21,7 +21,10 @@ const INITIAL_STATE = {
 
 export const logout = createAction("AUTH/GET_LOGOUT")();
 
-export const signInRequest = createAction("AUTH/GET_SIGN_IN", (params: string) => params)();
+export const signInRequest = createAction(
+  "AUTH/GET_SIGN_IN",
+  ({ code, password }: { code: string; password: string }) => ({ code, password }),
+)();
 
 export const signInResponse = createAsyncAction("AUTH/SIGN_IN_LOADING", "AUTH/SIGN_IN_SUCCESS", "AUTH/SIGN_IN_ERROR")<
   boolean,
@@ -50,11 +53,5 @@ export default createReducer<STATE, Action>(INITIAL_STATE)
   )
   .handleAction(
     logout,
-    produce<STATE>((state) => {
-      state.user = {
-        id: "",
-      };
-      state.loading = false;
-      state.error = {} as AxiosError;
-    }),
+    produce<STATE>(() => INITIAL_STATE),
   );

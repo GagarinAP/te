@@ -13,7 +13,12 @@ const SignInSchema = Yup.object().shape({
   password: Yup.string().test("password", "Too Short!", (password = "") => password?.length > 5),
 });
 
-const initialValues = {
+type TypeValues = {
+  code: string;
+  password: string;
+};
+
+const initialValues: TypeValues = {
   code: "",
   password: "",
 };
@@ -21,9 +26,7 @@ const initialValues = {
 const Detail = () => {
   const loading = useSelector(authLoadingSelector);
   const dispatch = useDispatch();
-  const handleSubmit = (values: { code: string; password: string }) => {
-    dispatch(signInRequest(values.code + values.password));
-  };
+  const handleSubmit = (values: TypeValues) => dispatch(signInRequest(values));
   return (
     <Container>
       <Title>Please login</Title>
